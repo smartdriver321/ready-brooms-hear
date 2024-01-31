@@ -16,6 +16,7 @@ import { Home, Register, Login, ForgotPassword, CompanyList } from './pages/'
 import Layout from './components/layout'
 import { resources } from './config/resources'
 import Create from './pages/company/create'
+import Edit from './pages/company/edit'
 
 export default function App() {
   return (
@@ -59,6 +60,7 @@ export default function App() {
                   <Route path='companies'>
                     <Route index element={<CompanyList />} />
                     <Route path='new' element={<Create />} />
+                    <Route path='edit/:id' element={<Edit />} />
                   </Route>
                 </Route>
               </Routes>
