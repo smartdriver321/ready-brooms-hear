@@ -8,6 +8,7 @@ import {
 import { useCustom } from '@refinedev/core'
 import { DashboardTotalCountsQuery } from '../../graphql/types'
 import { DASHBOARD_TOTAL_COUNTS_QUERY } from '../../graphql/queries'
+import LatestActivities from '../../components/home/latest-activities'
 
 export function Home() {
   const { data, isLoading } = useCustom<DashboardTotalCountsQuery>({
@@ -59,7 +60,9 @@ export function Home() {
           marginTop: '32px',
         }}
       >
-        <Col xs={24}></Col>
+        <Col xs={24}>
+          <LatestActivities />
+        </Col>
       </Row>
     </div>
   )
