@@ -1,24 +1,22 @@
+import React from 'react'
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 import { Authenticated, GitHubBanner, Refine } from '@refinedev/core'
 import { DevtoolsPanel, DevtoolsProvider } from '@refinedev/devtools'
 import { RefineKbar, RefineKbarProvider } from '@refinedev/kbar'
-
-import { useNotificationProvider } from '@refinedev/antd'
-import '@refinedev/antd/dist/reset.css'
-
-import { authProvider, dataProvider, liveProvider } from './providers'
-import { Home, Register, Login, ForgotPassword } from './pages/'
-
 import routerBindings, {
   CatchAllNavigate,
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from '@refinedev/react-router-v6'
+import { useNotificationProvider } from '@refinedev/antd'
+import '@refinedev/antd/dist/reset.css'
 import { App as AntdApp } from 'antd'
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
+import { authProvider, dataProvider, liveProvider } from './providers'
+import { Home, Register, Login, ForgotPassword, CompanyList } from './pages/'
 import Layout from './components/layout'
 import { resources } from './config/resources'
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <GitHubBanner />
@@ -57,6 +55,7 @@ function App() {
                   }
                 >
                   <Route index element={<Home />} />
+                  <Route path='/companies' element={<CompanyList />} />
                 </Route>
               </Routes>
               <RefineKbar />
@@ -70,5 +69,3 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App
